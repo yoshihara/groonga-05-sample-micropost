@@ -13,6 +13,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rails-html-sanitizer', '~> 1.0'
 
+gem 'rroonga', require: 'groonga'
+gem 'settingslogic'
+
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0.0.beta2'

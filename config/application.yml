@@ -1,0 +1,12 @@
+default: &default
+  groonga:
+    database: db/groonga/<%= Rails.env %>/articles.db
+
+development: &development
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

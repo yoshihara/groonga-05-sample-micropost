@@ -1,10 +1,27 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
+require 'test/unit/rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  class << self
+    def startup
+      DatabaseRewinder.clean_all
+    end
+  end
 
-  # Add more helper methods to be used by all tests here...
+  def setup
+    DatabaseRewinder.clean
+  end
+end
+
+class ActionController::TestCase
+  class << self
+    def startup
+      DatabaseRewinder.clean_all
+    end
+  end
+
+  def setup
+    DatabaseRewinder.clean
+  end
 end

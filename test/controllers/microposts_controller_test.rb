@@ -19,17 +19,12 @@ class MicropostsControllerTest < ActionController::TestCase
 
     assert { Micropost.count == 1 }
 
-    assert_redirected_to micropost_path(assigns(:micropost))
+    assert_redirected_to microposts_path
   end
 
   sub_test_case 'when a micropost already exists' do
     setup do
       @micropost = FactoryGirl.create(:micropost)
-    end
-
-    test "should show micropost" do
-      get :show, id: @micropost
-      assert_response :success
     end
 
     test "should get edit" do
@@ -39,7 +34,7 @@ class MicropostsControllerTest < ActionController::TestCase
 
     test "should update micropost" do
       patch :update, id: @micropost, micropost: { content: @micropost.content }
-      assert_redirected_to micropost_path(assigns(:micropost))
+      assert_redirected_to microposts_path
     end
 
     test "should destroy micropost" do

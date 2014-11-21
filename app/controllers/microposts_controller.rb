@@ -1,15 +1,10 @@
 class MicropostsController < ApplicationController
-  before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  before_action :set_micropost, only: [:edit, :update, :destroy]
 
   # GET /microposts
   # GET /microposts.json
   def index
     @microposts = Micropost.all
-  end
-
-  # GET /microposts/1
-  # GET /microposts/1.json
-  def show
   end
 
   # GET /microposts/new
@@ -27,7 +22,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
 
     if @micropost.save
-      redirect_to @micropost, notice: 'Micropost was successfully created.'
+      redirect_to microposts_url, notice: 'Micropost was successfully created.'
     else
       render :new
     end
@@ -37,7 +32,7 @@ class MicropostsController < ApplicationController
   # PATCH/PUT /microposts/1.json
   def update
     if @micropost.update(micropost_params)
-      redirect_to @micropost, notice: 'Micropost was successfully updated.'
+      redirect_to microposts_url, notice: 'Micropost was successfully updated.'
     else
       render :edit
     end

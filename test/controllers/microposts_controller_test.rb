@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class MicropostsControllerTest < ActionController::TestCase
+  include DatabaseConfiguration
+
   test "should get index" do
     get :index
     assert_response :success

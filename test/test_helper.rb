@@ -2,26 +2,21 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'test/unit/rails/test_help'
 
-class ActiveSupport::TestCase
-  class << self
+module DatabaseConfiguration
+  def self.included(klass)
+    klass.extend Startup
+    include Setup
+  end
+
+  module Startup
     def startup
       DatabaseRewinder.clean_all
     end
   end
 
-  def setup
-    DatabaseRewinder.clean
-  end
-end
-
-class ActionController::TestCase
-  class << self
-    def startup
-      DatabaseRewinder.clean_all
+  module Setup
+    def setup
+      DatabaseRewinder.clean
     end
-  end
-
-  def setup
-    DatabaseRewinder.clean
   end
 end

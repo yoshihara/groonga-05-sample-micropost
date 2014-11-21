@@ -11,12 +11,14 @@ module DatabaseConfiguration
   module Startup
     def startup
       DatabaseRewinder.clean_all
+      MicropostIndex.truncate
     end
   end
 
   module Setup
     def setup
       DatabaseRewinder.clean
+      MicropostIndex.truncate
     end
   end
 end

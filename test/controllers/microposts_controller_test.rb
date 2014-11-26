@@ -45,4 +45,15 @@ class MicropostsControllerTest < ActionController::TestCase
       assert_redirected_to microposts_path
     end
   end
+
+  test "should get search" do
+    @micropost = FactoryGirl.create(:micropost, content: "content")
+
+    get :search, q: "content"
+
+    assert_response :success
+    assert do
+      assigns(:microposts) == [@micropost]
+    end
+  end
 end

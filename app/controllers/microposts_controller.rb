@@ -35,6 +35,11 @@ class MicropostsController < ApplicationController
     redirect_to microposts_url, notice: 'Micropost was successfully destroyed.'
   end
 
+  def search
+    @microposts = MicropostIndex.search(params[:q])
+    render :index
+  end
+
   private
 
   def set_micropost

@@ -49,4 +49,16 @@ class MicropostsTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  sub_test_case "search" do
+    setup do
+      @hit_content = "hitted"
+      @hit_micropost = FactoryGirl.create(:micropost, content: @hit_content)
+      visit search_microposts_path(q: "hitted")
+    end
+
+    test "should show micropost content" do
+      assert { page.all(".content").map(&:text) == [@hit_content] }
+    end
+  end
 end

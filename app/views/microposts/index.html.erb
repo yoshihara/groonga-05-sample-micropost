@@ -2,6 +2,12 @@
 
 <h1>Listing Microposts</h1>
 
+<div id="search">
+  <%= form_tag(search_microposts_path, method: :get, role: "search", class: "search") do %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= button_tag "search" %>
+  <% end %>
+</div>
 <table id="microposts">
   <thead>
     <tr>

@@ -15,9 +15,10 @@ class MicropostsControllerTest < ActionController::TestCase
   end
 
   test "should create new" do
-    post :create, micropost: { content: 'test' }
+    micropost_params = { content: 'test' }
+    post :create, micropost: micropost_params
 
-    assert { Micropost.count == 1 }
+    assert { Micropost.exists?(micropost_params) }
 
     assert_redirected_to microposts_path
   end
@@ -40,7 +41,7 @@ class MicropostsControllerTest < ActionController::TestCase
     test "should destroy micropost" do
       delete :destroy, id: @micropost
 
-      assert { Micropost.count == 0 }
+      assert { not Micropost.exists?(@micropost.id) }
 
       assert_redirected_to microposts_path
     end

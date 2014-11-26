@@ -12,7 +12,7 @@ class MicropostsTest < ActionDispatch::IntegrationTest
     end
 
     test "should show micropost content" do
-      assert { page.has_text?(@content) }
+      assert { page.all(".content").map(&:text) == [@content] }
     end
 
     test "should include link for edit" do

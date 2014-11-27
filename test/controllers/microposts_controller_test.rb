@@ -47,14 +47,20 @@ class MicropostsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should get search" do
-    @micropost = FactoryGirl.create(:micropost, content: "content")
+  sub_test_case "should get search" do
+    setup do
+      @micropost = FactoryGirl.create(:micropost, content: "content")
+      get :search, q: "content"
+    end
 
-    get :search, q: "content"
+    test "should get hit micropost" do
+      assert do
+        assigns(:microposts) == [@micropost]
+      end
+    end
 
-    assert_response :success
-    assert do
-      assigns(:microposts) == [@micropost]
+    test "should get title including query" do
+      assert_equal("(Searched by \"content\")", assigns(:search_title))
     end
   end
 end

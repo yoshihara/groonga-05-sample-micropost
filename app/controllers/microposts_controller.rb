@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
 
   def index
     @microposts = Micropost.all
+    @search_title = ""
   end
 
   def new
@@ -36,7 +37,10 @@ class MicropostsController < ApplicationController
   end
 
   def search
-    @microposts = MicropostIndex.search(params[:q])
+    query = params[:q]
+    @microposts = MicropostIndex.search(query)
+    @search_title = "(Searched by \"#{query}\")" unless query.blank?
+
     render :index
   end
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "microposts#index"
+
   resources :microposts do
     get :search, on: :collection
   end

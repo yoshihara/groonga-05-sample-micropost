@@ -8,7 +8,7 @@
 - rails
 - PostgreSQL
 
-## How to execute
+## How to run
 
 First, you get this repository with `git clone`.
 

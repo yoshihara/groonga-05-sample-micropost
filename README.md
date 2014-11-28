@@ -1,4 +1,4 @@
-# groonga-sample-micropost
+# groonga_05_sample_micropost
 
 [全文検索エンジンGroongaを囲む夕べ5](http://groonga.doorkeeper.jp/events/15816) の発表にあったサンプルアプリです。
 

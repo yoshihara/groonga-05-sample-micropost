@@ -2,7 +2,7 @@
 
 [全文検索エンジンGroongaを囲む夕べ5](http://groonga.doorkeeper.jp/events/15816) の発表にあったサンプルアプリです。
 
-## dependencies
+## Dependencies
 
 - ruby > 2.1.3
 - rails

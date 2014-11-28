@@ -13,7 +13,7 @@
 ```
 $ git clone https://github.com/yoshihara/groonga-05-sample-micropost.git
 $ cd groonga_05_sample_micropost
-$ bundle update
+$ bundle install
 $ bundle exec rake db:create db:migrate
 $ bundle exec rails s
 ```

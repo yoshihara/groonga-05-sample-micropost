@@ -1,4 +1,4 @@
-# groonga_05_sample_micropost
+# groonga-05-sample-micropost
 
 [全文検索エンジンGroongaを囲む夕べ5](http://groonga.doorkeeper.jp/events/15816) の発表にあったサンプルアプリです。
 
@@ -10,10 +10,9 @@
 
 ## How to run
 
-First, you get this repository with `git clone`.
-
 ```
-$ cd groonga-sample-micropost
+$ git clone https://github.com/yoshihara/groonga-05-sample-micropost.git
+$ cd groonga_05_sample_micropost
 $ bundle update
 $ bundle exec rake db:create db:migrate
 $ bundle exec rails s

@@ -6,6 +6,7 @@
 
 - rails
 - ruby >= 2.1.3
+- bunlder ( `gem install bunlder` )
 - PostgreSQL
 
 ## How to run

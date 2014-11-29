@@ -4,8 +4,8 @@
 
 ## Dependencies
 
-- ruby > 2.1.3
 - rails
+- ruby >= 2.1.3
 - PostgreSQL
 
 ## How to run
